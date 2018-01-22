@@ -13,7 +13,8 @@ which shows the data within this website: https://whirledtracker.000webhostapp.c
 1. Download "IPTracer.as" file into your "whirledsdk/examples/avatars/uravatar/src" folder  
 2. Open your avatar's flash file, and in the Basic Avatar Code (inside the main scene)  
 add this line "new IPTracker(_ctrl, loaderInfo.loaderURL);" under the Body code  
-3. Now publish your SWF file and upload it onto a Whirled server!  
+3. Now make a new blank scene in your avatar and name it "action_IP Tracker"  
+4. Now publish your SWF file and upload it onto a Whirled server!  
 
 Note: The "IP Tracker Avatar.fla" in this GitHub repository is an example avatar that uses  
 the WPL code, you may use it as reference.
