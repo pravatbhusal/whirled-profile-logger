@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `player` (
   `id` int(11) NOT NULL,
-  `url` text COLLATE utf8_unicode_ci NOT NULL,
+  `playerurl` text COLLATE utf8_unicode_ci NOT NULL,
   `playerid` int(11) NOT NULL,
   `playername` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ipaddress` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -41,7 +41,6 @@ CREATE TABLE `player` (
   `timezone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `latitude` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `longitude` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ascode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `isp` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
