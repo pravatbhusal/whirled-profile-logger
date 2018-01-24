@@ -16,7 +16,7 @@ if (_ctrl == null)
 {
 	_ctrl = new AvatarControl(this);
 	_body = new Body(_ctrl,this, 550);
-  new IPTracker(_ctrl, loaderInfo.loaderURL);
+	new IPTracker(_ctrl, loaderInfo.loaderURL);
 	_ctrl.setHotSpot(275, 350, 250);
 	_ctrl.setMoveSpeed(110);
 	_ctrl.addEventListener(Event.UNLOAD, handleUnload);
