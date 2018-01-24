@@ -26,17 +26,17 @@
 		</p>
 		
 		<form method="GET">
-			<input style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
+			<input required style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
 			<button type="submit" class="waves-effect waves-light btn">Search</button>
 		</form>
 		<br>
 		<form method="GET">
-			<input style="width: 250px;" placeholder="Search by Profile Name" name="profilename" type="text" class="browser-default">
+			<input required style="width: 250px;" placeholder="Search by Profile Name" name="profilename" type="text" class="browser-default">
 			<button type="submit" class="waves-effect waves-light btn">Search</button>
 		</form>
 		<br>
 		<form method="GET">
-			<input style="width: 250px;" placeholder="Search by IP Address" name="ipaddress" type="text" class="browser-default">
+			<input required style="width: 250px;" placeholder="Search by IP Address" name="ipaddress" type="text" class="browser-default">
 			<button type="submit" class="waves-effect waves-light btn">Search</button>
 		</form>
 		
