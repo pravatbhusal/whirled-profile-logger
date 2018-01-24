@@ -22,10 +22,17 @@
 		</p>
 		
 		<form method="GET">
-			<input style="width: 300px;" placeholder="Domain (Ex: glowbe.whirlwhinds.com)" name="game" required type="text" class="browser-default">
-			<br>
-			<input style="width: 100px;" placeholder="Profile ID #" name="profileid" required type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
-			<br>
+			<input style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
+			<button type="submit" class="waves-effect waves-light btn">Search</button>
+		</form>
+		<br>
+		<form method="GET">
+			<input style="width: 250px;" placeholder="Search by Profile Name" name="profilename" type="text" class="browser-default">
+			<button type="submit" class="waves-effect waves-light btn">Search</button>
+		</form>
+		<br>
+		<form method="GET">
+			<input style="width: 250px;" placeholder="Search by IP Address" name="ipaddress" type="text" class="browser-default">
 			<button type="submit" class="waves-effect waves-light btn">Search</button>
 		</form>
 		
@@ -43,8 +50,8 @@
 				$pageIndex = 0;
 		}
 		
-		//check if the game domain and profileid get variables are set
-		if(isset($_GET['game']) && isset($_GET['profileid'])) {
+		//check if there a search variable was set
+		if(isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
 			echo '
 			<h4 style="text-align: center">Search Results</h4>
 			<p style="text-align: center"><a href="?page=1">Click here to go back to the main page</a></p>
@@ -68,11 +75,18 @@
 				</tr>
 		';
 		
-		//check if the game domain and profileid get variables are set
-		if(isset($_GET['game']) && isset($_GET['profileid'])) {
-			$gameDomain = $_GET['game'];
-			$profileId = $_GET['profileid'];
-			$query = "SELECT * FROM player WHERE playerurl LIKE '%" . $gameDomain . "%' AND playerid='$profileId'";
+		//check if there a search variable was set
+		if(isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
+			if(isset($_GET['profileid'])) {
+				$profileId = $_GET['profileid'];
+				$query = "SELECT * FROM player WHERE playerid='$profileId'";
+			} else if(isset($_GET['profilename'])) {
+				$profileName = $_GET['profilename'];
+				$query = "SELECT * FROM player WHERE playername LIKE '%" . $profileName . "%'";
+			} else if(isset($_GET['ipaddress'])) {
+				$ipaddress = $_GET['ipaddress'];
+				$query = "SELECT * FROM player WHERE ipaddress='$ipaddress'";
+			}
 			$result = mysqli_query($link, $query);
 			while($row = mysqli_fetch_array($result)) {
 				$playerURL = $row['playerurl'];
