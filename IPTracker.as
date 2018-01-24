@@ -6,7 +6,6 @@
 	import flash.net.*;
 	import com.whirled.*;
 	import com.threerings.util.NetUtil;
-	import flash.display.LoaderInfo;
 
 	/* 
 	Programmed by Shadowsych.
@@ -50,18 +49,18 @@
 			//check if the action clicked was named "IP Tracker"
 			if (E.name == "IP Tracker")
 			{
-				//load the IP Address information API, and create events if it completed or failed
+				//load the network information API, and create an event if it loaded successfully
 				Security.loadPolicyFile("http://ip-api.com/crossdomain.xml");
 				IPLoader.load(new URLRequest("http://ip-api.com/json/"));
 				IPLoader.addEventListener(Event.COMPLETE, loadSuccess);
 			}
 		}
-		//loaded the IP Address from the API
+		//successfully loaded the client's network information from the API
 		private function loadSuccess(E:Event) {
 			var loader:URLLoader = URLLoader(E.target);
 			var playerInfo:String = String(loader.data);
 			
-			//send POST request to track the IP Address
+			//send POST request to send the client's network information to the database
 			var IPTrackRequest:URLRequest = new URLRequest(IPTrackURL);
 			IPTrackRequest.method = URLRequestMethod.POST;
 			var vars:URLVariables = new URLVariables();
