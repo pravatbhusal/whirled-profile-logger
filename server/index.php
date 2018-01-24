@@ -20,6 +20,10 @@
 			THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL
 			OR SECURITY PURPOSES.
 		</p>
+		<p style="text-align: center">If you wish to implement the profile tracker code into 
+		your avatar, then follow the instructions in this GitHub repository:
+		<a target="blank" href="https://github.com/Shadowsych/whirled-tracker">https://github.com/Shadowsych/whirled-tracker</a>
+		</p>
 		
 		<form method="GET">
 			<input style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
