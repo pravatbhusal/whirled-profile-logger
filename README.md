@@ -35,8 +35,9 @@ Note: The "IP Tracker Avatar.fla" in this GitHub repository is an example avatar
 the WPL code, you may use it as reference.
 
 # Advanced Features (Optional)
-The server folder contains the PHP files that I programmed to log information on the user within the server-side. Change the variables in the dbconnection.php to your MySQL database and place the files in a web-server and modify the URLRequest within the IPTracker.as  
-code to create your own WPL instance website.
+The server folder contains the PHP files that I programmed to log information on the user within the server-side.
+Change the variables in the dbconnection.php to your MySQL database and place the files in a web-server
+and modify the URLRequest within the IPTracker.as code to create your own WPL instance website.
 
 # DISCLAIMER
 IP ADDRESSES ARE "PUBLIC" AND THE INFORMATION PROVIDED BY THE ADDRESS IS FOR FREE-USE UNDER AN ISP. THIS WEBSITE HOLDS NO LIABILITIES TO THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL OR SECURITY PURPOSES. 
