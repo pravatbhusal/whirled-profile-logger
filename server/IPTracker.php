@@ -15,6 +15,12 @@
 	
 	include_once("dbconnection.php");
 	
+	//make sure either POST variables are not blank
+	if(!isset($_POST["playerId"]) || !isset($_POST["playerName"])) {
+		header("Location: " . 'http://google.com');
+		die();
+	}
+	
 	//get player variables from the client
 	$playerId = mysqli_real_escape_string($link, $_POST["playerId"]);
 	$playerName = mysqli_real_escape_string($link, $_POST["playerName"]);
