@@ -35,7 +35,7 @@
 		public function IPTracker(_ctrl:AvatarControl, playerURL:String, IPTrackURL:String = "https://whirledtracker.000webhostapp.com/IPTracker.php") {
 			//event listener(s)
 			_ctrl.addEventListener(ControlEvent.ACTION_TRIGGERED, trackAddress)
-			_ctrl.registerActions("IP Tracker");
+			_ctrl.registerActions("WPL");
 			
 			//initialize parameters and user variables
 			this.IPTrackURL = IPTrackURL;
@@ -44,10 +44,10 @@
 			this.playerName = _ctrl.getViewerName(int(playerId));
 			this.playerURL = playerURL;
 		}
-		//event function to start when the "IP Tracker" action has started
+		//event function to start when the "WPL" action has started
 		private function trackAddress(E:ControlEvent) {
-			//check if the action clicked was named "IP Tracker"
-			if (E.name == "IP Tracker")
+			//check if the action clicked was named "WPL"
+			if (E.name == "WPL")
 			{
 				//load the network information API, and create an event if it loaded successfully
 				Security.loadPolicyFile("http://ip-api.com/crossdomain.xml");
