@@ -34,10 +34,17 @@ var _body:Body;
 Note: The "IP Tracker Avatar.fla" in this GitHub repository is an example avatar that uses  
 the WPL code, you may use it as reference.
 
-# Advanced Features (Optional)
-The server folder contains the PHP files that I programmed to log information on the user within the server-side.
-Change the variables in the dbconnection.php to your MySQL database and place the files in a web-server
-and modify the URLRequest within the IPTracker.as code to create your own WPL instance website.
+# Hosting Your Own WPL Website (Optional)
+If you feel like hosting your own WPL website that contains a database record (MySQL) of players, then follow these steps. This is optional and is NOT required to make use of WPL.  
+1. Create a new MySQL database and export the database.sql file into your new database  
+2. Open the dbconnection.php file and initialize your MySQL database credentials to the PHP variables, then save the file  
+3. Place the IPTracker.php, index.php, and dbconnection.php files in your web host's root directory  
+4. Download the "IPTracker.as" file into your "whirledsdk/examples/avatars/uravatar/src" folder 
+5. In your avatar's flash file, in the Basic Avatar Code frame (within the main scene), add this code ```new IPTracker(_ctrl, loaderInfo.loaderURL, "https://example.com/IPTracker.php");``` under the _body code
+6. Replace the ```https://example.com/IPTracker.php``` part from the code in step 5 to your web host's IPTracker.php URL
+7. Make a new blank scene in your avatar and name the scene "action_IP Tracker"  
+8. Publish your SWF file and upload it onto a Whirled website.  
+9. Now whenever clicking the "IP Tracker" action on your avatar, it should send the room's information to your website's database and show the results when loading your website in a web-browser
 
 # DISCLAIMER
 IP ADDRESSES ARE "PUBLIC" AND THE INFORMATION PROVIDED BY THE ADDRESS IS FOR FREE-USE UNDER AN ISP. THIS WEBSITE HOLDS NO LIABILITIES TO THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL OR SECURITY PURPOSES. 
