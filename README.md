@@ -1,6 +1,6 @@
 # Whirled Profile Logger (WPL)
 A profile logger for Whirled servers, tracks IP Addresses and player information.  
-If your avatar uses the WPL code, then clicking the "IP Tracker" action will receive the the room's information and send it to a database, which shows the information within this website: https://whirledtracker.000webhostapp.com/
+If your avatar uses the WPL code, then clicking the "IP Tracker" action will receive the the room's information and send it to a database, which shows the information within this website: https://whirledtracker.000webhostapp.com/index.php
 
 # Setting-up WPL onto your Avatar
 1. Download the "IPTracker.as" file into your "whirledsdk/examples/avatars/uravatar/src" folder  
