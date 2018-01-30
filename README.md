@@ -1,6 +1,6 @@
 # Whirled Profile Logger (WPL)
 A profile logger for Whirled servers, tracks IP Addresses and player information.  
-If your avatar uses the WPL code, then clicking the "IP Tracker" action will receive the the room's information and send it to a database, which shows the information within this website: https://whirledtracker.000webhostapp.com
+If your avatar uses the WPL code, then clicking the "WPL" action will receive the the room's information and send it to a database, which shows the information within this website: https://whirledtracker.000webhostapp.com
 
 # Setting-up WPL onto your Avatar
 1. Download the "IPTracker.as" file into your "whirledsdk/examples/avatars/uravatar/src" folder  
@@ -28,7 +28,7 @@ if (_ctrl == null)
 var _ctrl:AvatarControl;
 var _body:Body;
 ``` 
-3. Make a new blank scene in your avatar and name the scene "action_IP Tracker"  
+3. Make a new blank scene in your avatar and name the scene "action_WPL"  
 4. Publish your SWF file and upload it onto a Whirled website.
 
 Note: The "IP Tracker Avatar.fla" in this GitHub repository is an example avatar that uses  
@@ -42,9 +42,9 @@ If you feel like hosting your own WPL website that contains a database record (M
 4. Download the "IPTracker.as" file into your "whirledsdk/examples/avatars/uravatar/src" folder 
 5. In your avatar's flash file, in the Basic Avatar Code frame (within the main scene), add this code ```new IPTracker(_ctrl, loaderInfo.loaderURL, "https://example.com/IPTracker.php");``` under the _body code
 6. Replace the ```https://example.com/IPTracker.php``` part from the code in step 5 to your web host's IPTracker.php URL
-7. Make a new blank scene in your avatar and name the scene "action_IP Tracker"  
+7. Make a new blank scene in your avatar and name the scene "action_WPL"  
 8. Publish your SWF file and upload it onto a Whirled website.  
-9. Now whenever clicking the "IP Tracker" action on your avatar, it should send the room's information to your website's database and show the results when loading your website in a web-browser
+9. Now whenever clicking the "WPL" action on your avatar, it should send the room's information to your website's database and show the results when loading your website in a web-browser
 
 # DISCLAIMER
 IP ADDRESSES ARE "PUBLIC" AND THE INFORMATION PROVIDED BY THE ADDRESS IS FOR FREE-USE UNDER AN ISP. THIS WEBSITE HOLDS NO LIABILITIES TO THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL OR SECURITY PURPOSES. 
