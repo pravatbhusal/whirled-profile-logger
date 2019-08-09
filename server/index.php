@@ -1,48 +1,47 @@
 <html>
-
 <body>
-	<header>
-		<title>Profile Tracker</title>
-		<!--style.css, favcon, googlefont, materializecss-->
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<header>
+	<title>Profile Tracker</title>
+	<!--style.css, favcon, googlefont, materializecss-->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-		<!--jquery, materializejs-->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-		<header>
-			<main>
-				<div class="container">
-					<h4 style="text-align: center">Profile Tracker: Whirled Servers</h4>
-					<p style="text-align: center; color: red;">
-						DISCLAIMER: IP ADDRESSES ARE "PUBLIC" AND THE INFORMATION PROVIDED BY THE
-						ADDRESS IS FOR FREE-USE UNDER AN ISP. THIS WEBSITE HOLDS NO LIABILITIES TO
-						THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL
-						OR SECURITY PURPOSES.
-					</p>
-					<p style="text-align: center">If you wish to implement the profile tracker code into
-						your avatar, then follow the instructions in this GitHub repository:
-						<a target="blank" href="https://github.com/Shadowsych/whirled-tracker">https://github.com/Shadowsych/whirled-tracker</a>
-					</p>
+	<!--jquery, materializejs-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<header>
+<main>
+	<div class="container">
+		<h4 style="text-align: center">Profile Tracker: Whirled Servers</h4>
+		<p style="text-align: center; color: red;">
+			DISCLAIMER: IP ADDRESSES ARE "PUBLIC" AND THE INFORMATION PROVIDED BY THE
+			ADDRESS IS FOR FREE-USE UNDER AN ISP. THIS WEBSITE HOLDS NO LIABILITIES TO
+			THE IP ADDRESSES, AND THIS SHOULD ONLY BE USED FOR EDUCATIONAL
+			OR SECURITY PURPOSES.
+		</p>
+		<p style="text-align: center">If you wish to implement the profile tracker code into
+		your avatar, then follow the instructions in this GitHub repository:
+		<a target="blank" href="https://github.com/Shadowsych/whirled-tracker">https://github.com/Shadowsych/whirled-tracker</a>
+		</p>
 
-					<form method="GET">
-						<input required style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
-						<button type="submit" class="waves-effect waves-light btn">Search</button>
-					</form>
-					<br>
-					<form method="GET">
-						<input required style="width: 250px;" placeholder="Search by Profile Name" name="profilename" type="text" class="browser-default">
-						<button type="submit" class="waves-effect waves-light btn">Search</button>
-					</form>
-					<br>
-					<form method="GET">
-						<input required style="width: 250px;" placeholder="Search by IP Address" name="ipaddress" type="text" class="browser-default">
-						<button type="submit" class="waves-effect waves-light btn">Search</button>
-					</form>
+		<form method="GET">
+			<input required style="width: 250px;" placeholder="Search by Profile ID #" name="profileid" type="text" class="browser-default" min="0" onkeypress="return isNumberKey(event)">
+			<button type="submit" class="waves-effect waves-light btn">Search</button>
+		</form>
+		<br>
+		<form method="GET">
+			<input required style="width: 250px;" placeholder="Search by Profile Name" name="profilename" type="text" class="browser-default">
+			<button type="submit" class="waves-effect waves-light btn">Search</button>
+		</form>
+		<br>
+		<form method="GET">
+			<input required style="width: 250px;" placeholder="Search by IP Address" name="ipaddress" type="text" class="browser-default">
+			<button type="submit" class="waves-effect waves-light btn">Search</button>
+		</form>
 
-					<hr>
-					<?php
+		<hr>
+		<?php
         include_once("dbconnection.php");
         //check if page variable is set
         if (isset($_GET['page'])) {
@@ -167,26 +166,26 @@
 			';
         }
         ?>
-				</div>
-			</main>
-			<script>
-				//if we're on the first page or less, then add certain classes for the previous button
-				if (document.getElementById("currentPage").value <= 1) {
-					document.getElementById("previousPage").className += "disabled";
-					document.getElementById("previousPageHref").removeAttribute("href");
-				} else {
-					document.getElementById("previousPage").className += "waves-effect";
-				}
+	</div>
+</main>
+	<script>
+		//if we're on the first page or less, then add certain classes for the previous button
+		if(document.getElementById("currentPage").value <= 1) {
+			document.getElementById("previousPage").className += "disabled";
+			document.getElementById("previousPageHref").removeAttribute("href");
+		} else {
+			document.getElementById("previousPage").className += "waves-effect";
+		}
 
-				//check if is number
-				function isNumberKey(evt) {
-					var charCode = (evt.which) ? evt.which : evt.keyCode;
-					if (charCode != 46 && charCode > 31 &&
-						(charCode < 48 || charCode > 57))
-						return false;
-					return true;
-				}
-			</script>
+		//check if is number
+		function isNumberKey(evt)
+		{
+			var charCode = (evt.which) ? evt.which : evt.keyCode;
+			if (charCode != 46 && charCode > 31
+			&& (charCode < 48 || charCode > 57))
+			 return false;
+			return true;
+		}
+	</script>
 </body>
-
 </html>
