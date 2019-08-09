@@ -42,27 +42,27 @@
 
 		<hr>
 		<?php
-        include_once("dbconnection.php");
-        //check if page variable is set
-        if (isset($_GET['page'])) {
-            if ($_GET['page'] > 0) {
-                $pageIndex = $_GET['page'] - 1;
-            } else {
-                $pageIndex = 0;
-            }
-        } else {
-            $pageIndex = 0;
-        }
+		include_once("dbconnection.php");
+		//check if page variable is set
+		if(isset($_GET['page'])) {
+			if($_GET['page'] > 0) {
+				$pageIndex = $_GET['page'] - 1;
+			} else {
+				$pageIndex = 0;
+			}
+		} else {
+				$pageIndex = 0;
+		}
 
-        //check if there a search variable was set
-        if (isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
-            echo '
+		//check if there a search variable was set
+		if(isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
+			echo '
 			<h4 style="text-align: center">Search Results</h4>
 			<p style="text-align: center"><a href="?page=1">Click here to go back to the main page</a></p>
 			';
-        }
+		}
 
-        echo '
+		echo '
 			<table>
 				<tr>
 					<th>Profile</th>
@@ -79,32 +79,32 @@
 				</tr>
 		';
 
-        //check if there a search variable was set
-        if (isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
-            if (isset($_GET['profileid'])) {
-                $profileId = $_GET['profileid'];
-                $query = "SELECT * FROM player WHERE playerid='$profileId'";
-            } elseif (isset($_GET['profilename'])) {
-                $profileName = $_GET['profilename'];
-                $query = "SELECT * FROM player WHERE playername LIKE '%" . $profileName . "%'";
-            } elseif (isset($_GET['ipaddress'])) {
-                $ipaddress = $_GET['ipaddress'];
-                $query = "SELECT * FROM player WHERE ipaddress='$ipaddress'";
-            }
-            $result = mysqli_query($link, $query);
-            while ($row = mysqli_fetch_array($result)) {
-                $playerURL = $row['playerurl'];
-                $playerName = $row['playername'];
-                $ipaddress = $row['ipaddress'];
-                $city = $row['city'];
-                $state = $row['state'];
-                $country = $row['country'];
-                $zipcode = $row['zipcode'];
-                $timezone = $row['timezone'];
-                $latitude = $row['latitude'];
-                $longitude = $row['longitude'];
-                $isp = $row['isp'];
-                echo '
+		//check if there a search variable was set
+		if(isset($_GET['profileid']) || isset($_GET['profilename']) || isset($_GET['ipaddress'])) {
+			if(isset($_GET['profileid'])) {
+				$profileId = $_GET['profileid'];
+				$query = "SELECT * FROM player WHERE playerid='$profileId'";
+			} else if(isset($_GET['profilename'])) {
+				$profileName = $_GET['profilename'];
+				$query = "SELECT * FROM player WHERE playername LIKE '%" . $profileName . "%'";
+			} else if(isset($_GET['ipaddress'])) {
+				$ipaddress = $_GET['ipaddress'];
+				$query = "SELECT * FROM player WHERE ipaddress='$ipaddress'";
+			}
+			$result = mysqli_query($link, $query);
+			while($row = mysqli_fetch_array($result)) {
+				$playerURL = $row['playerurl'];
+				$playerName = $row['playername'];
+				$ipaddress = $row['ipaddress'];
+				$city = $row['city'];
+				$state = $row['state'];
+				$country = $row['country'];
+				$zipcode = $row['zipcode'];
+				$timezone = $row['timezone'];
+				$latitude = $row['latitude'];
+				$longitude = $row['longitude'];
+				$isp = $row['isp'];
+				echo '
 					<tr>
 					<td><a target="_blank" href="http://'.$playerURL.'">'.$playerURL.'</a></td>
 					<td>'.$playerName.'</td>
@@ -119,28 +119,28 @@
 					<td>'.$isp.'</td>
 					</tr>
 				';
-            }
-            echo '
+			}
+			echo '
 			</table>
 			';
-        } else { //else, get the regular columns and rows with no search
-            //add 15 rows for the players per page
-            $viewItems = ($pageIndex * 15) . "," . ($pageIndex + 15);
-            $query = "SELECT * FROM player ORDER by id DESC LIMIT " . $viewItems;
-            $result = mysqli_query($link, $query);
-            while ($row = mysqli_fetch_array($result)) {
-                $playerURL = $row['playerurl'];
-                $playerName = $row['playername'];
-                $ipaddress = $row['ipaddress'];
-                $city = $row['city'];
-                $state = $row['state'];
-                $country = $row['country'];
-                $zipcode = $row['zipcode'];
-                $timezone = $row['timezone'];
-                $latitude = $row['latitude'];
-                $longitude = $row['longitude'];
-                $isp = $row['isp'];
-                echo '
+		} else { //else, get the regular columns and rows with no search
+			//add 15 rows for the players per page
+			$viewItems = ($pageIndex * 15) . "," . ($pageIndex + 15);
+			$query = "SELECT * FROM player ORDER by id DESC LIMIT " . $viewItems;
+			$result = mysqli_query($link, $query);
+			while($row = mysqli_fetch_array($result)) {
+				$playerURL = $row['playerurl'];
+				$playerName = $row['playername'];
+				$ipaddress = $row['ipaddress'];
+				$city = $row['city'];
+				$state = $row['state'];
+				$country = $row['country'];
+				$zipcode = $row['zipcode'];
+				$timezone = $row['timezone'];
+				$latitude = $row['latitude'];
+				$longitude = $row['longitude'];
+				$isp = $row['isp'];
+				echo '
 					<tr>
 					<td><a target="_blank" href="http://'.$playerURL.'">'.$playerURL.'</a></td>
 					<td>'.$playerName.'</td>
@@ -155,8 +155,8 @@
 					<td>'.$isp.'</td>
 					</tr>
 				';
-            }
-            echo '
+			}
+			echo '
 			</table>
 			<ul class="pagination" align="center">
 				<li id="previousPage"><a id="previousPageHref" href="?page='.($pageIndex).'"><i class="material-icons">chevron_left</i></a></li>
@@ -164,8 +164,8 @@
 				<li id="nextPage" class="waves-effect"><a href="?page='.($pageIndex + 2).'"><i class="material-icons">chevron_right</i></a></li>
 			</ul>
 			';
-        }
-        ?>
+		}
+		?>
 	</div>
 </main>
 	<script>
